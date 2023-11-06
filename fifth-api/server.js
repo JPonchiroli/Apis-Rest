@@ -45,7 +45,7 @@ app.post('/api/register', (req, res) => { // Method INSERT/POST
   });
 });
 
-app.get('/api/data', (req, res) => {
+app.get('/api/data', (req, res) => { // Method SELECT
   const sql = 'SELECT * FROM user1';
 
   db.query(sql, (err, results) => {
@@ -57,6 +57,42 @@ app.get('/api/data', (req, res) => {
     }
   })
 })
+
+app.delete('/api/delete/:id', (req, res) => { // Method DELETE
+  const userId = req.params.id; // Set the user id
+
+  const sql = 'DELETE FROM user1 WHERE id_user = ?';
+  db.query(sql, [userId], (err, result) => { // Run the SQL query with the user id
+    if (err) {
+      console.error('Error deleting user from the database:', err);
+      res.status(500).json({ error: 'Failed to delete user '});
+    } else {
+      res.json({ message: 'User deleted successfully'});
+    }
+  });
+});
+
+
+app.put('/api/update', (req, res) => {
+  const { userId, username, password } = req.body;
+
+  const sql = 'UPDATE user1 SET username = ?, password = ? WHERE id_user = ?';
+
+  db.query(sql, [username, password, userId], (err, result) => {
+    if (err) {
+      console.error('Error updating user in the database', err);
+      res.status(500).json({ error: 'Failed to update user' });
+    } else {
+      res.json({ message: 'User updated successfully' });
+      console.log('Rota de atualização acionada');  
+      console.log('User ID:', userId);
+      console.log('New username:', username);
+      console.log('New password:', password);
+    }
+  });
+});
+
+
 
 app.listen(port, () =>{
   console.log(`Service Running @ http://localhost:${port}`)
