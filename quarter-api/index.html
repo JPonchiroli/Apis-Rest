@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=], initial-scale=1.0">
+  <title>Quarter-API</title>
+</head>
+<body class="bg-gray-950 text-white">
+  <div id="containerCenter" class="flex justify-center items-center h-screen">
+    <div id="main" class="flex flex-col border-solid border-2 border-white rounded-xl p-5">
+      <div id="title" class="flex justify-center">
+        <h1 class="mb-5 text-xl">Scholar Grades</h1>
+      </div>
+      <form action="/api/grades" method="post">
+        <div id="inputs" class="flex flex-col">
+          <input type="text" name="name" id="name" placeholder="Name" 
+          class="border-solid border-2 border-white mb-2 bg-inherit pl-2 rounded-md">
+          <input type="text" name="group" id="group" placeholder="Group" 
+          class="border-solid border-2 border-white mb-2 bg-inherit pl-2 rounded-md">
+          <input type="text" name="gradeOne" id="gradeOne" placeholder="First Grade" 
+          class="border-solid border-2 border-white mb-2 bg-inherit pl-2 rounded-md">
+          <input type="text" name="gradeTwo" id="gradeTwo" placeholder="Second Grade" 
+          class="border-solid border-2 border-white mb-2 bg-inherit pl-2 rounded-md">
+          <input type="text" name="gradeThree" id="gradeThree" placeholder="Third Grade" 
+          class="border-solid border-2 border-white mb-2 bg-inherit pl-2 rounded-md">
+        </div>
+      <div id="buttonSubmit" class="flex justify-center border-solid border-2 border-white rounded-lg">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.tailwindcss.com"></script>
+</html>
