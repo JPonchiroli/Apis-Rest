@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run:api:3": "nodemon ;/third-api/server.js"
+    "services": "docker-compose up -d",
+    "services:down": "docker-compose down",
+    "services:clear": "docker-compose down --volumes",
+    "api:3": "nodemon ./third-api/server.js",
+    "api:5": "nodemon ./fith-api/server.js"
   },
   "keywords": [],
   "author": "",

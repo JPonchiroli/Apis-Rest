@@ -11,6 +11,7 @@ const db = mysql.createConnection({ // Create a Connection and Set the things
   user: 'joaop',
   password: '123',
   database: 'apiregister',
+  port: 3306
 });
 
 db.connect((err) => { // Try to Connect with Database
@@ -26,7 +27,7 @@ app.get('/register.html', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.post('/api/register', (req, res) => { // Method INSERT/POST
@@ -60,8 +61,8 @@ app.get('/api/data', (req, res) => { // Method SELECT
 
 app.delete('/api/delete/:id', (req, res) => { // Method DELETE
   const userId = req.params.id; // Set the user id
-
-  const sql = 'DELETE FROM user1 WHERE id_user = ?';
+  console.log('User to be deleted: ', { userId })
+  const sql = 'DELETE FROM user1 WHERE username = ?';
   db.query(sql, [userId], (err, result) => { // Run the SQL query with the user id
     if (err) {
       console.error('Error deleting user from the database:', err);
@@ -71,7 +72,6 @@ app.delete('/api/delete/:id', (req, res) => { // Method DELETE
     }
   });
 });
-
 
 app.put('/api/update', (req, res) => {
   const { userId, username, password } = req.body;
