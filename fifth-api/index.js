@@ -61,7 +61,7 @@ app.get('/api/data', (req, res) => { // Method SELECT
 
 app.delete('/api/delete/:id', (req, res) => { // Method DELETE
   const userId = req.params.id; // Set the user id
-  console.log({ userId })
+  console.log('User to be deleted: ', { userId })
   const sql = 'DELETE FROM user1 WHERE username = ?';
   db.query(sql, [userId], (err, result) => { // Run the SQL query with the user id
     if (err) {
@@ -72,7 +72,6 @@ app.delete('/api/delete/:id', (req, res) => { // Method DELETE
     }
   });
 });
-
 
 app.put('/api/update', (req, res) => {
   const { userId, username, password } = req.body;
