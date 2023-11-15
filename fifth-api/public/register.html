@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/style.css">
+
   <title>Fifth-API-Register</title>
 </head>
 <body>
-  <form action="/api/register" method="post">
-    <input type="text" name="user" id="user" placeholder="User">
-    <input type="text" name="password" id="password" placeholder="Password">
-    <button type="submit">Submit</button>
-  </form>  
+  <div class="container">
+    <h1>Register User</h1>
+    <a href="index.html">View Users</a>
+    <div class="formContent">
+      <form action="/api/register" method="post">
+        <input type="text" class="registerInput" name="user" id="user" placeholder="User">
+        <input type="text" class="registerInput" name="password" id="password" placeholder="Password">
+        <button type="submit">Submit</button>
+      </form> 
+    </div> 
+  </div>
 </body>
 </html>

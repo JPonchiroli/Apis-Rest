@@ -6,11 +6,11 @@ $(document).ready(function() {
       $('#dataList').empty();
 
       data.forEach(function(row){
-        $('#dataList').append('<tr><td>' + row.id_user + '</td>' + 
-                                  '<td><input type="text" class="username-input" data-user-id="' + row.id_user + '" value="' + row.username + '"/></td>' + 
-                                  '<td><input type="text" class="password-input" data-user-id="' + row.id_user + '" value="' + row.password + '"/></td>' + 
-                                  '<td> <button class="delete-button" data-id="' + row.id_user + '"><i class="fa-solid fa-trash"></i></button></td>' + 
-                                  '<td> <button class="update-button" data-id="' + row.id_user + '"><i class="fa-solid fa-pencil"></i></button></td></tr>');
+        $('#dataList').append('<tr><td>' + row.cod_user + '</td>' + 
+                                  '<td><input type="text" class="username-input" data-user-id="' + row.cod_user + '" value="' + row.username + '"/></td>' + 
+                                  '<td><input type="text" class="password-input" data-user-id="' + row.cod_user + '" value="' + row.password + '"/></td>' + 
+                                  '<td> <button class="delete-button" data-id="' + row.cod_user + '"><i class="fa-solid fa-trash"></i></button></td>' + 
+                                  '<td> <button class="update-button" data-id="' + row.cod_user + '"><i class="fa-solid fa-pencil"></i></button></td></tr>');
       });
       },
       error:function(){
@@ -45,14 +45,11 @@ $(document).on('click', '.update-button', function() {
   const password = $row.find('.password-input').val();
 
   $.ajax({
-    url: '/api/update',
+    url: '/api/update/' + userId + '/' + username + '/' + password,
     method: 'PUT',
     data: JSON.stringify({ userId, username, password }),
     contentType: 'application/json',
     success: function(data) {
-      console.log('User ID:', userId);
-      console.log('New username:', username);
-      console.log('New password:', password);
       $row.find('.username-input').val(username);
       $row.find('.password-input').val(password);
       alert(data.message);
