@@ -7,7 +7,7 @@
   font-family: "Sora", sans-serif;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,52 +15,95 @@
   height: 80vh;
 }
 
-.container h1{
+.container h1 {
   margin-bottom: 20px;
 }
 
-.container a{
+.container a {
   margin-bottom: 20px;
 }
 
-a{
+a {
   color: #000;
   text-decoration: none;
 }
 
-a:hover{
+a:hover {
   font-weight: bold;
 }
 
-table{
-  border-collapse: collapse
+table {
+  border-collapse: collapse;
 }
 
-table, th, td{
+table,
+th,
+td {
   border: solid 1px black;
   gap: 0;
 }
 
-th, td{
+th,
+td {
   padding: 10px;
 }
 
-td{
+td {
   justify-content: center;
 }
 
-input[type=text]{
+input[type="text"], input[type="password"] {
   border: none;
   outline: none;
   border-bottom: solid 1px black;
 }
 
-form{
+.delete-button,
+.update-button {
+  background: transparent;
+  border: none;
+  margin-left: 20px;
+}
+
+.delete-button,
+.update-button:hover {
+  cursor: pointer;
+}
+
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.registerInput{
+.registerInput {
   margin-bottom: 20px;
+}
+
+.passwordArea button{
+  position: absolute;
+  left: 720px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.passwordArea button:active{
+  transform: scale(0.8);
+}
+
+.registerButton {
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px black;
+  width: 100px;
+}
+
+.registerButton:hover {
+  cursor: pointer;
+}
+
+.registerButton:active {
+  transform: scale(0.8);
 }

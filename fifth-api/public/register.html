@@ -1,24 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css" />
 
-  <title>Fifth-API-Register</title>
-</head>
-<body>
-  <div class="container">
-    <h1>Register User</h1>
-    <a href="index.html">View Users</a>
-    <div class="formContent">
-      <form action="/api/register" method="post">
-        <input type="text" class="registerInput" name="user" id="user" placeholder="User">
-        <input type="text" class="registerInput" name="password" id="password" placeholder="Password">
-        <button type="submit">Submit</button>
-      </form> 
-    </div> 
-  </div>
-</body>
+    <script
+      src="https://kit.fontawesome.com/87c9f9014b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js"></script>
+
+    <title>Fifth-API-Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register User</h1>
+      <a href="index.html">View Users</a>
+      <div class="formContent">
+        <form action="/api/register" method="post">
+          <input
+            type="text"
+            class="registerInput"
+            name="user"
+            id="user"
+            placeholder="User"
+            required="true"
+          />
+          <div class="passwordArea">
+            <input
+              type="password"
+              class="registerInput"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required="true"
+            />
+            <button onclick="showPassword()" type="button">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <button type="submit" class="registerButton">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

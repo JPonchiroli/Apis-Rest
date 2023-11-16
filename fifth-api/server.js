@@ -74,11 +74,11 @@ app.delete('/api/delete/:id', (req, res) => { // Method DELETE
 });
 
 
-app.put('/api/update/:id/:username/:password', (req, res) => {
+app.put('/api/update/:id/:username/:password', (req, res) => { // Method UPDATE
   const userId = req.params.id;
   const username = req.params.username;
   const password = req.params.password;
-  console.log({userId})
+  console.log('User to be updated: ', { userId })
   const sql = 'UPDATE user1 SET username = ?, password = ? WHERE cod_user = ?';
 
   db.query(sql, [username, password, userId], (err, result) => {
